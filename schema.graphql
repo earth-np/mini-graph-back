@@ -1,0 +1,19 @@
+# import *,{Query,Mutation,Subscription} from "./src/generated/prisma.graphql"
+
+type Mutation {
+  sentMessage(text: String!, userId: ID! , roomId: ID!): Message
+  joinRoom(userId: ID!,roomId: ID!): Room
+}
+
+type Query {
+  messagesInRoom(roomId: ID!) : [Message]
+}
+
+type joinRes{
+  User: User
+  Room: Room
+}
+
+type Subscription {
+  newMessage(roomId: ID!): Message
+}
